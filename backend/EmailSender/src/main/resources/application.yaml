@@ -1,0 +1,41 @@
+server:
+  port: 8081
+
+spring:
+  application:
+    name: emailSender
+
+  kafka:
+    bootstrap-servers: 127.0.0.1:9092
+    consumer:
+      group-id: crypto-transactions
+      topics:
+        sell: crypto-sell-events
+        buy: crypto-buy-events
+      auto-offset-reset: latest
+
+      key-deserializer: org.springframework.kafka.support.serializer.ErrorHandlingDeserializer
+      value-deserializer: org.springframework.kafka.support.serializer.ErrorHandlingDeserializer
+
+      properties:
+        spring.deserializer.key.delegate.class: org.apache.kafka.common.serialization.StringDeserializer
+        spring.deserializer.value.delegate.class: org.springframework.kafka.support.serializer.JsonDeserializer
+
+        spring.json.use.type.headers: false
+        spring.json.value.default.type: com.trading212.emailsender.email.model.EmailEntity
+        spring.json.trusted.packages: "*"
+
+  mail:
+    host: smtp-relay.brevo.com
+    port: 587
+    username: 9fa127001@smtp-brevo.com
+    password: ${BREVO_API_KEY}
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+
+  email:
+    sender-email: danielgo_nz@abv.bg

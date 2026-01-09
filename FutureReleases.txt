@@ -1,0 +1,11 @@
+1. Use DTO's instead of the real model objects
+
+2. Make custom error handler, not just catching errors in the frontend
+
+3. Make custom logger in order to log whats happening in the system
+
+4. Make the controller methods return ResponseBody instead of raw objects
+
+5. Add Check constraint in the Transactions table in order to contraint the type of transaction to be BUY or SELL
+
+6. 
