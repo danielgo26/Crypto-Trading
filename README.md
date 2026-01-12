@@ -1,9 +1,10 @@
 Documentation
 
-Short summary:
 A crypto trading application.
 
-User functionalities:
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+User functionalities
 1. CRUD operations on account level. Currently the app supports only admin mode, so a user can access and control all system accounts. Special option for reseting account's initial state.
 2. See available cryptos with their up-to-date prices and amounts.
 3. Buy and Sell cryptos at a specified price. On each such action, an email with the corresponding trade details is being generated and sent.
@@ -11,7 +12,35 @@ User functionalities:
 5. See their transactions.
 6. Option for showing an expectable loss/profit from a deal.
 
-Used technologies:
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Architecture
+- Several services instead a single Monolith (two BE ones - CryptoCurrencyTrading and EmailSender, and a FE one - crypto-trading-frontend).
+- MVC architecture in both BE services.
+- Event-Driven Architecture used when sending emails.
+- ACID compliance.
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Component Breakdown & Responsibilities
+
+=================================================================================================================================================
+Component	              Type	             Responsibility
+=================================================================================================================================================
+Frontend Client	        React        	     Manages user interaction, state management, and visualizes real-time data.
+_________________________________________________________________________________________________________________________________________________
+Core Trading Service	  Spring Boot	       Acts as the source of truth. Manages User Accounts, Wallets, Transactions, and Kraken API integration.
+_________________________________________________________________________________________________________________________________________________
+Email Service	          Spring Boot	       Listens for trade events and interfaces with the Brevo API to send transactional emails.
+_________________________________________________________________________________________________________________________________________________
+PostgreSQL	            RDBMS	             Persists relational data.
+_________________________________________________________________________________________________________________________________________________
+Kafka Cluster	          Message Broker	   Buffers and routes events between services (topics: crypto-sell-events, crypto-buy-events).
+_________________________________________________________________________________________________________________________________________________
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Used technologies
 1. Backend Services
 
   Framework & Language: Backend logic implemented using Java and the Spring Boot framework.
@@ -38,3 +67,8 @@ Used technologies:
   Market Data: Integration with the Kraken Exchange for real-time asset pricing.
 
   Notifications: Integration with Brevo for handling transactional email delivery.
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Local start-up:
+  ToDo
