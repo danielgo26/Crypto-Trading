@@ -1,10 +1,8 @@
-Documentation
-
-A crypto trading application.
+## A crypto trading application.
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-User functionalities
+### User functionalities
 1. CRUD operations on account level. Currently the app supports only admin mode, so a user can access and control all system accounts. Special option for reseting account's initial state.
 2. See available cryptos with their up-to-date prices and amounts.
 3. Buy and Sell cryptos at a specified price. On each such action, an email with the corresponding trade details is being generated and sent.
@@ -14,7 +12,7 @@ User functionalities
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-Architecture
+### Architecture
 - Several services instead a single Monolith (two BE ones - CryptoCurrencyTrading and EmailSender, and a FE one - crypto-trading-frontend).
 - MVC architecture in both BE services.
 - Event-Driven Architecture used when sending emails.
@@ -22,25 +20,18 @@ Architecture
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-Component Breakdown & Responsibilities
+### Component Breakdown & Responsibilities
 
-=================================================================================================================================================
-Component	              Type	             Responsibility
-=================================================================================================================================================
-Frontend Client	        React        	     Manages user interaction, state management, and visualizes real-time data.
-_________________________________________________________________________________________________________________________________________________
-Core Trading Service	  Spring Boot	       Acts as the source of truth. Manages User Accounts, Wallets, Transactions, and Kraken API integration.
-_________________________________________________________________________________________________________________________________________________
-Email Service	          Spring Boot	       Listens for trade events and interfaces with the Brevo API to send transactional emails.
-_________________________________________________________________________________________________________________________________________________
-PostgreSQL	            RDBMS	             Persists relational data.
-_________________________________________________________________________________________________________________________________________________
-Kafka Cluster	          Message Broker	   Buffers and routes events between services (topics: crypto-sell-events, crypto-buy-events).
-_________________________________________________________________________________________________________________________________________________
-
+| Component | Type | Responsibility |
+| :--- | :--- | :--- |
+| **Frontend Client** | React | Manages user interaction, state management, and visualizes real-time data. |
+| **Core Trading Service** | Spring Boot | Acts as the source of truth. Manages User Accounts, Wallets, Transactions, and Kraken API integration. |
+| **Email Service** | Spring Boot | Listens for trade events and interfaces with the Brevo API to send transactional emails. |
+| **PostgreSQL** | RDBMS | Persists relational data. |
+| **Kafka Cluster** | Message Broker | Buffers and routes events between services (topics: `crypto-sell-events`, `crypto-buy-events`). |
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-Used technologies
+### Used technologies
 1. Backend Services
 
   Framework & Language: Backend logic implemented using Java and the Spring Boot framework.
@@ -70,5 +61,5 @@ Used technologies
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-Local start-up:
+### Local start-up:
   ToDo
