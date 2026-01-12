@@ -3,11 +3,11 @@
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 ### User functionalities
-1. CRUD operations on account level. Currently the app supports only admin mode, so a user can access and control all system accounts. Special option for reseting account's initial state.
+1. CRUD operations on account level. Currently the app supports only admin mode, so a user can access and control all system accounts. Special option for reseting account's initial state is present.
 2. See available cryptos with their up-to-date prices and amounts.
 3. Buy and Sell cryptos at a specified price. On each such action, an email with the corresponding trade details is being generated and sent.
 4. See their wallet with cryptos.
-5. See their transactions.
+5. See their transaction history.
 6. Option for showing an expectable loss/profit from a deal.
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -16,7 +16,6 @@
 - Several services instead a single Monolith (two BE ones - CryptoCurrencyTrading and EmailSender, and a FE one - crypto-trading-frontend).
 - MVC architecture in both BE services.
 - Event-Driven Architecture used when sending emails.
-- ACID compliance.
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -34,12 +33,12 @@
 ### Used technologies
 1. Backend Services
 
-  Framework & Language: Backend logic implemented using Java and the Spring Boot framework.
-  Architecture: The system is partitioned into two distinct, decoupled application services (e.g., Core Trading Service and Email Notification Service).
+  Backend logic implemented using Java and the Spring Boot framework.
+  The system is partitioned into two distinct, decoupled application services (e.g., Core Trading Service and Email Notification Service).
 
 2. Frontend Interface
 
-  Framework: Client-side user interface developed using React.js.
+  Client-side user interface on React.js using Node.js.
 
 3. Communication & Protocols
 
